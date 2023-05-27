@@ -37,7 +37,6 @@ const NavigatorButton = () => {
           display: "flex",
           px: 2,
           py: 1,
-          mb: 1,
           bgcolor: "white",
         }}>
         <Box sx={{ width: "90%", ml: 2 }}>

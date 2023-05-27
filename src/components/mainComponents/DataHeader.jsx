@@ -8,7 +8,7 @@ const DataHeader = () => {
         width: "95%",
         backgroundColor: "white",
         mx: "auto",
-        p: 2,
+        py: 2,
         display:"flex",
         mb: "8px",
         borderRadius: "8px",
@@ -17,9 +17,9 @@ const DataHeader = () => {
         justifyContent:"start",
         backgroundColor:"rgba(229, 243, 255, 1)"
       }}>
-      <Box sx={{width:"20%",pl:3}}>Channel</Box>
-      <Box sx={{width:"30%",pr:2}}>Primary Channel (default select)</Box>
-      <Box sx={{width:"30%"}}>Reference Channel (default N/A)</Box>
+      <Box sx={{width:"20%",display:"flex",justifyContent:"center"}}>Channel</Box>
+      <Box sx={{width:"30%",display:"flex",justifyContent:"center"}}>Primary Channel (default select)</Box>
+      <Box sx={{width:"30%",display:"flex",justifyContent:"center"}}>Reference Channel (default N/A)</Box>
     </Box>
   );
 };

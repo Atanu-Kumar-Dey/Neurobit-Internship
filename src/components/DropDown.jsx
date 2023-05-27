@@ -3,12 +3,13 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
-export default function DropDown() {
-  const [age, setAge] = React.useState("");
-
+import { useSelector } from "react-redux";
+export default function DropDown({index}) {
+  const [option, setOption] = React.useState("");
+  const {value} = useSelector((state)=>state.step)
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setOption(event.target.value);
+    console.log(index)
   };
 
   const dumyOptions = [
@@ -60,19 +61,22 @@ export default function DropDown() {
 
   return (
     <FormControl
-      sx={{ m: 1, minWidth: 200, backgroundColor: "white" }}
-      size="small">
+      sx={{ m: 1, minWidth: 230,m:1}}
+      size="small"
+      disabled={value>2} >
       <Select
-        value={age}
+        value={option}
         onChange={handleChange}
         displayEmpty
         inputProps={{ "aria-label": "Without label" }}>
         <MenuItem value="">
-          <em>None</em>
+          <span style={{fontSize:"13px",fontWeight:"400"}}>Select Channel</span> 
         </MenuItem>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {dumyOptions.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.name}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

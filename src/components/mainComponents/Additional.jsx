@@ -13,7 +13,7 @@ const AdditionalContent = () => {
       sx={{
         background: "white",
         borderRadius: "8px",
-        mb: "5px",
+        mb: 1,
         width: "95%",
         mx: "auto",
         lineHeight: "40px",
@@ -29,13 +29,13 @@ const AdditionalContent = () => {
         <Box>
           <FormControlLabel
             control={<Checkbox defaultChecked={optionals[0].optional1} />}
-            label=" optional1"
+            label=" Artifacts"
           />
         </Box>
         <Box>
           <FormControlLabel
             control={<Checkbox defaultChecked={optionals[0].optional2} />}
-            label="optional2"
+            label="Spindle"
           />
         </Box>
       </Stack>

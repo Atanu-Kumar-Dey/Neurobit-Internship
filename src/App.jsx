@@ -19,7 +19,7 @@ const App = () => {
       <Box
         sx={{
           backgroundColor: "rgba(245, 246, 250, 1)",
-          maxHeight: "100vh",
+          minHeight: "100vh",
           width: "100%",
         }}>
         <Montage />
