@@ -6,16 +6,14 @@ import NavigatorButton from "./NavigatorButton";
 import DataHeader from "./mainComponents/DataHeader";
 import { useSelector } from "react-redux";
 import Additional from "./mainComponents/Additional";
-import MapChannel from "./mainComponents/MapChannel";
+import MapChannel from "./mainComponents/DataTable";
 import FinalTable from "./mainComponents/FinalTable"
-import EditChannels from "./mainComponents/EditChannels";
 import GoToBottom from "./GoToBottom";
 
 const displayForm = (value) => {
   switch (value) {
     case 0:
       return <UploadDocument />;
-      break;
     case 1:
       return (
         <>
@@ -23,15 +21,13 @@ const displayForm = (value) => {
           <Additional />
         </>
       );
-      break;
     case 2:
       return (
         <>
-          <EditChannels />
+          <MapChannel />
           <Additional />
         </>
       );
-      break;
     case 3:
       return (
         <>
@@ -39,7 +35,6 @@ const displayForm = (value) => {
           <Additional />
         </>
       );
-      break;
     default:
       break;
   }

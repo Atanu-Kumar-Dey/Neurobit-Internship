@@ -10,7 +10,7 @@ const DataHeader = () => {
         mx: "auto",
         py: 2,
         display:"flex",
-        mb: "8px",
+        mb: 2,
         borderRadius: "8px",
         fontWeight:"500",
         alignItems:"center",

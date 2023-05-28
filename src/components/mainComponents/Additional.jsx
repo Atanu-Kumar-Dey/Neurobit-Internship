@@ -13,10 +13,11 @@ const AdditionalContent = () => {
       sx={{
         background: "white",
         borderRadius: "8px",
-        mb: 1,
+        mb: 2,
+        boxShadow: 2,
         width: "95%",
         mx: "auto",
-        lineHeight: "40px",
+        lineHeight: "50px",
         display: "flex",
         py: 1,
         px: 2,

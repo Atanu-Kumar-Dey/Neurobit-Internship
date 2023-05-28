@@ -36,7 +36,7 @@ const NavigatorButton = () => {
         sx={{
           display: "flex",
           px: 2,
-          py: 1,
+          py: 2,
           bgcolor: "white",
         }}>
         <Box sx={{ width: "90%", ml: 2 }}>
@@ -46,7 +46,7 @@ const NavigatorButton = () => {
             onClick={previousState}>
             Back
           </Button>
-          <Tooltip title="Reset all settings">
+          <Tooltip  title="Reset all settings">
             <Button
               disabled={value < 2 || value > 2}
               sx={{ textTransform: "lowercase", fontSize: "13", ml: 1 }}

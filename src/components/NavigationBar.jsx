@@ -10,6 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { RxDashboard } from "react-icons/rx";
 import { AiOutlineFileAdd } from "react-icons/ai";
+import IncrementNumberAnimation from "./IncrementNumberAnimation";
 import { GiTwoCoins } from "react-icons/gi";
 
 const drawerWidth = 240;
@@ -17,18 +18,18 @@ const drawerWidth = 240;
 const navList = [
   {
     name: "Dashboard",
-    icon: <RxDashboard size={20}/>,
-    style: {borderLeft: "5px solid #04273A"},
+    icon: <RxDashboard size={20} />,
+    style: { borderLeft: "5px solid #04273A" },
   },
   {
     name: "Montage",
-    icon: <AiOutlineFileAdd  size={20}/>,
-    style: {bgcolor: "#2ca9e340",borderLeft: "5px solid #2ca9e3"},
+    icon: <AiOutlineFileAdd size={20} />,
+    style: { bgcolor: "#2ca9e340", borderLeft: "5px solid #2ca9e3" },
   },
   {
     name: "Credits",
-    icon: <GiTwoCoins  size={20}/>,
-    style: {borderLeft: "5px solid #04273A"}
+    icon: <GiTwoCoins size={20} />,
+    style: { borderLeft: "5px solid #04273A" },
   },
 ];
 
@@ -59,18 +60,14 @@ const NavigationBar = () => {
       </Toolbar>
       <Divider />
       <List>
-        {
-          navList.map((item) => (
-            <ListItem key={item.name} disablePadding sx={{my:1}}>
+        {navList.map((item) => (
+          <ListItem key={item.name} disablePadding sx={{ my: 1 }}>
             <ListItemButton sx={item.style}>
-              <ListItemIcon sx={{ color: "white" }}>
-                {item.icon}
-              </ListItemIcon>
+              <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
               <ListItemText primary={item.name} sx={{ color: "white" }} />
             </ListItemButton>
           </ListItem>
-          ))
-        }
+        ))}
       </List>
       <Box
         sx={{
@@ -88,7 +85,10 @@ const NavigationBar = () => {
           textAlign: "center",
           fontSize: "12px",
         }}>
-        <div style={{ fontSize: "18px" }}>1,650</div>
+        <div style={{ fontSize: "22px" }}>
+          <IncrementNumberAnimation limit={1650} />
+          
+        </div>
         Total credits avilable
       </Box>
     </Drawer>

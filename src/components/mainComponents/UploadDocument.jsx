@@ -11,8 +11,10 @@ const UploadDocument = () => {
         height: 345,
         mx: "auto",
         backgroundColor: "white",
-        mb:3,
+        mb:"12px",
         p: 2,
+        boxShadow: 2,
+
         borderRadius: "8px",
       }}>
       <Box

@@ -18,6 +18,7 @@ const ProgressBar = () => {
           backgroundColor: "white",
           mx: "auto",
           p: 2,
+          boxShadow: 1,
           mb: "12px",
           borderRadius: "8px",
         }}>
