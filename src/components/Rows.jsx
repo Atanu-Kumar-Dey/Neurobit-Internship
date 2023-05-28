@@ -2,17 +2,24 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement } from "../store/stateSlice";
 import { updateDropdownData } from "../store/dropdownSlice";
-import { Box, Button, Backdrop, CircularProgress, Paper } from "@mui/material";
+import { Box, Button, Backdrop, CircularProgress } from "@mui/material";
 import { AiOutlinePlus } from "react-icons/ai";
 import EditIcon from "@mui/icons-material/Edit";
+import SubRows from "./SubRows";
 import DropDown from "./DropDown";
 
 const Rows = ({ rowId, channel }) => {
   const dropdownData = useSelector((state) => state.dropdown[rowId]);
+  console.log(dropdownData)
   const { value } = useSelector((state) => state.step);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [showAdditionalComponent, setShowAdditionalComponent] = useState(false);
+  const [clickCount, setclickCount] = useState(1);
+
+  const handleButtonClick = () => {
+    setclickCount(clickCount + 1);
+  };
 
   const handleExpand = () => {
     setShowAdditionalComponent(!showAdditionalComponent);
@@ -96,11 +103,12 @@ const Rows = ({ rowId, channel }) => {
           <Box
             sx={{
               boxShadow: 2,
+              py:2,
               overflow: "hidden",
               backgroundColor: "rgba(246, 246, 246, 1)",
             }}>
             {Array.from({ length: clickCount }).map((_, index) => (
-              <SubRows key={index} rowId={index} />
+              <SubRows key={index} rowId={index} subrowId={index} />
             ))}
             <Box sx={{ width: "60%", textAlign: "center" }}>
               <Button

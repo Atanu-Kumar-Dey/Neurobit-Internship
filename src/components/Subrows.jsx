@@ -1,12 +1,10 @@
 import React from "react";
 import { Box, Button } from "@mui/material";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { AiOutlinePlus } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import DropDown from "./DropDown";
 
-const SubRows = ({ rowId }) => {
-  const { value } = useSelector((state) => state.step);
+const SubRows = ({ rowId,subrowId }) => {
 
   return (
     <Box
@@ -41,7 +39,7 @@ const SubRows = ({ rowId }) => {
           color="error"
           sx={{ fontSize: "12px", textTransform: "capitalize" }}
           startIcon={<RiDeleteBin6Line />}
-          onClick={handleDelete}
+          // onClick={handleDelete}
         >
           Delete
         </Button>
