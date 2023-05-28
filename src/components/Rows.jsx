@@ -6,19 +6,13 @@ import { Box, Button, Backdrop, CircularProgress, Paper } from "@mui/material";
 import { AiOutlinePlus } from "react-icons/ai";
 import EditIcon from "@mui/icons-material/Edit";
 import DropDown from "./DropDown";
-import SubRows from "./SubRows";
 
-const Rows = ({ divId, channel }) => {
-  const dropdownData = useSelector((state) => state.dropdown[divId]);
+const Rows = ({ rowId, channel }) => {
+  const dropdownData = useSelector((state) => state.dropdown[rowId]);
   const { value } = useSelector((state) => state.step);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [showAdditionalComponent, setShowAdditionalComponent] = useState(false);
-  const [clickCount, setClickCount] = useState(1);
-
-  const handleButtonClick = () => {
-    setClickCount(clickCount + 1);
-  };
 
   const handleExpand = () => {
     setShowAdditionalComponent(!showAdditionalComponent);
@@ -37,7 +31,7 @@ const Rows = ({ divId, channel }) => {
   };
 
   const handleDropdownChange = (dropdownId, data) => {
-    dispatch(updateDropdownData({ divId, dropdownId, data }));
+    dispatch(updateDropdownData({ rowId, dropdownId, data }));
   };
 
   return (
@@ -52,7 +46,7 @@ const Rows = ({ divId, channel }) => {
             boxShadow: 2,
             alignItems: "center",
           }}
-          key={divId}>
+          key={rowId}>
           <Box
             sx={{
               width: "20%",
@@ -102,12 +96,11 @@ const Rows = ({ divId, channel }) => {
           <Box
             sx={{
               boxShadow: 2,
-              py: 2,
               overflow: "hidden",
               backgroundColor: "rgba(246, 246, 246, 1)",
             }}>
             {Array.from({ length: clickCount }).map((_, index) => (
-              <SubRows key={index} />
+              <SubRows key={index} rowId={index} />
             ))}
             <Box sx={{ width: "60%", textAlign: "center" }}>
               <Button

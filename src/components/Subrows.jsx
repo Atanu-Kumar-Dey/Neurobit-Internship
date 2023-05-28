@@ -5,12 +5,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import DropDown from "./DropDown";
 
-const SubRows = ({ rowId,subrowId }) => {
+const SubRows = ({ rowId }) => {
   const { value } = useSelector((state) => state.step);
-
-    const handleDelete = () => {
-        console.log(subrowId,rowId); 
-    };
 
   return (
     <Box
