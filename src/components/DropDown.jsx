@@ -40,6 +40,8 @@ const dumyOptions = [
 ];
 
 const DropDown = ({ value, onChange }) => {
+
+  
   const handleDropdownChange = (event) => {
     const selectedValue = event.target.value;
     onChange(selectedValue);
@@ -49,7 +51,7 @@ const DropDown = ({ value, onChange }) => {
     <FormControl
       sx={{ m: 1, minWidth: 230, m: 1 }}
       size="small"
-      disabled={value > 2}>
+      >
       <Select
         value={value || ""}
         onChange={handleDropdownChange}
@@ -60,13 +62,11 @@ const DropDown = ({ value, onChange }) => {
             Select Channel
           </span>
         </MenuItem>
-        {
-          dumyOptions.map((option, index) => (
-            <MenuItem key={index} value={`option${index+1}`}>
-              {option.name}
-              </MenuItem>
-          ))
-        }
+        {dumyOptions.map((option, index) => (
+          <MenuItem key={index} value={`option${index + 1}`}>
+            {option.name}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

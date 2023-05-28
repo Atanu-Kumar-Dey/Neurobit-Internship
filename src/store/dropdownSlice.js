@@ -5,9 +5,9 @@ const dropdownSlice = createSlice({
     initialState: {},
     reducers: {
         updateDropdownData: (state, action) => {
-            const { divId, dropdownId, data } = action.payload;
-            state[divId] = {
-                ...state[divId],
+            const { rowId, dropdownId, data } = action.payload;
+            state[rowId] = {
+                ...state[rowId],
                 [dropdownId]: data,
             };
         },

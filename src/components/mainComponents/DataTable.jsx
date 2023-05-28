@@ -10,7 +10,7 @@ const MapChannel = () => {
     <div>
       <Box sx={{ width: "95%", mx: "auto" }}>
         {channels.map((option, index) => (
-          <Rows divId={index} key={index} channel={option}/>
+          <Rows rowId={index} key={index} channel={option}/>
         ))}
       </Box>
     </div>
