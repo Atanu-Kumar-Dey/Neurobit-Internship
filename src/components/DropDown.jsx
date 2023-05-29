@@ -39,7 +39,7 @@ const dumyOptions = [
   },
 ];
 
-const DropDown = ({ value, onChange }) => {
+const DropDown = ({ value, onChange  }) => {
 
   
   const handleDropdownChange = (event) => {

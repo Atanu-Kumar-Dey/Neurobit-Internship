@@ -1,15 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const dropdownSlice = createSlice({
-    name: 'dropdown',
+    name: "dropdown",
     initialState: {},
     reducers: {
         updateDropdownData: (state, action) => {
-            const { rowId, dropdownId, data } = action.payload;
-            state[rowId] = {
-                ...state[rowId],
+            const { rowId, dropdownId = "dropdownId", subrowId = 0, data = "dropdown value" } = action.payload;
+            if (!state[rowId]) {
+                state[rowId] = {
+                    [subrowId]: {},
+                };
+            }
+            state[rowId][subrowId] = {
+                ...state[rowId][subrowId],
                 [dropdownId]: data,
             };
+
         },
     },
 });

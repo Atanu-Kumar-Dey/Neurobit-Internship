@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import DropDown from "./DropDown";
+import { updateDropdownData } from "../store/dropdownSlice";
 
-const SubRows = ({ rowId,subrowId }) => {
+const SubRows = ({ rowId, subrowId }) => {
+  const dropdownData = useSelector((state) => state.dropdown);
+
+  
+  const dispatch = useDispatch();
+
+  const handleDropdownChange = (dropdownId, data) => {
+    dispatch(updateDropdownData({ rowId, dropdownId, subrowId, data }));
+  };
+
 
   return (
     <Box
@@ -23,14 +33,14 @@ const SubRows = ({ rowId,subrowId }) => {
         }}></Box>
       <Box sx={{ width: "30%", display: "flex", justifyContent: "center" }}>
         <DropDown
-        //   value={dropdownData?.dropdown1} // Assuming dropdown1 is the ID of your first dropdown
-        //   onChange={(data) => handleDropdownChange("dropdown1", data)}
+          value={dropdownData[rowId][subrowId]?.dropdown1} // Assuming dropdown1 is the ID of your first dropdown
+          onChange={(data) => handleDropdownChange("dropdown1", data)}
         />
       </Box>
       <Box sx={{ width: "30%", display: "flex", justifyContent: "center" }}>
         <DropDown
-        //   value={dropdownData?.dropdown2} // Assuming dropdown2 is the ID of your second dropdown
-        //   onChange={(data) => handleDropdownChange("dropdown2", data)}
+          value={dropdownData[rowId][subrowId]?.dropdown2} // Assuming dropdown1 is the ID of your first dropdown
+          onChange={(data) => handleDropdownChange("dropdown2", data)}
         />
       </Box>
       <Box sx={{ width: "20%", display: "flex", justifyContent: "center" }}>
@@ -40,7 +50,7 @@ const SubRows = ({ rowId,subrowId }) => {
           sx={{ fontSize: "12px", textTransform: "capitalize" }}
           startIcon={<RiDeleteBin6Line />}
           // onClick={handleDelete}
-        >
+          >
           Delete
         </Button>
       </Box>
