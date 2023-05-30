@@ -5,7 +5,7 @@ import { updateDropdownData } from "../store/dropdownSlice";
 import { Box, Button, Backdrop, CircularProgress } from "@mui/material";
 import { AiOutlinePlus } from "react-icons/ai";
 import EditIcon from "@mui/icons-material/Edit";
-import SubRows from "./SubRows";
+import SubRows from "./Subrows.jsx";
 import {addSubRow} from "../store/jsonDataSlice"
 import DropDown from "./DropDown";
 
