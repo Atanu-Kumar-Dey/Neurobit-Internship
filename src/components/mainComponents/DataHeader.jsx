@@ -6,7 +6,6 @@ const DataHeader = () => {
     <Box
       sx={{
         width: "95%",
-        backgroundColor: "white",
         mx: "auto",
         py: 2,
         display:"flex",
