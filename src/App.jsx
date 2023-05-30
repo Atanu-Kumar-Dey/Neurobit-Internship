@@ -9,7 +9,14 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setData(Schema));
+      if(localStorage.getItem("channels")){
+        const data = JSON.parse(localStorage.getItem("channels"));
+        dispatch(setData({channels:data,optionals:Schema.optionals}));
+      }
+      else{
+        dispatch(setData(Schema));
+        localStorage.setItem("channels",JSON.stringify(Schema.channels));
+      }
   }, []);
 
   return (

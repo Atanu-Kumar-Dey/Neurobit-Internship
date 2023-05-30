@@ -6,11 +6,12 @@ import { Box, Button, Backdrop, CircularProgress } from "@mui/material";
 import { AiOutlinePlus } from "react-icons/ai";
 import EditIcon from "@mui/icons-material/Edit";
 import SubRows from "./SubRows";
-
+import {addSubRow} from "../store/jsonDataSlice"
 import DropDown from "./DropDown";
 
 const Rows = ({ rowId, channel }) => {
   const dropdownData = useSelector((state) => state.dropdown);
+  const { channels } = useSelector((state) => state.jsonData);
   const { value } = useSelector((state) => state.step);
   const dispatch = useDispatch();
   const [clickedOnce, setClickedOnce] = useState(false);
@@ -21,12 +22,14 @@ const Rows = ({ rowId, channel }) => {
   const handleButtonClick = (subrowId) => {
     setclickCount(clickCount + 1);
     dispatch(updateDropdownData({ rowId, subrowId }));
+    dispatch(addSubRow({rowId, subrowId}))
   };
 
   const handleExpand = (subrowId) => {
     setShowAdditionalComponent(!showAdditionalComponent);
     dispatch(updateDropdownData({ rowId, subrowId }));
     setClickedOnce(true);
+    dispatch(addSubRow({rowId, subrowId}));
   };
   const handleClose = () => {
     setOpen(false);
@@ -66,7 +69,7 @@ const Rows = ({ rowId, channel }) => {
                 justifyContent: "center",
                 fontWeight: "500",
               }}>
-              {channel}
+             Channel-{rowId+1}
             </Box>
             <Box
               sx={{ width: "30%", display: "flex", justifyContent: "center" }}>
@@ -90,9 +93,10 @@ const Rows = ({ rowId, channel }) => {
               sx={{ width: "20%", display: "flex", justifyContent: "center" }}>
               {value < 2 ? (
                 <Button
+                onClick={()=>setShowAdditionalComponent(!showAdditionalComponent)}
                   size="medium"
                   sx={{ fontSize: "12px", textTransform: "capitalize" }}
-                  onClick={() => handleExpand(clickCount)}>
+                >
                   {showAdditionalComponent ? (
                     "Hide Backup Channel"
                   ) : (
@@ -104,8 +108,10 @@ const Rows = ({ rowId, channel }) => {
                       ) : (
                         <Button
                           size="medium"
+                          onClick={() => handleExpand(clickCount)}
                           sx={{ fontSize: "12px", textTransform: "capitalize" }}
                           startIcon={<AiOutlinePlus />}>
+                             
                           Add Backup Channel
                         </Button>
                       )}
@@ -133,7 +139,8 @@ const Rows = ({ rowId, channel }) => {
                 overflow: "hidden",
                 backgroundColor: "rgba(246, 246, 246, 1)",
               }}>
-              {Array.from({ length: clickCount }).map((_, index) => (
+             {
+             channels[rowId].map((_, index) => (
                 <SubRows key={index} rowId={rowId} subrowId={index + 1} />
               ))}
               <Box sx={{ width: "60%", textAlign: "center" }}>

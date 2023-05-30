@@ -2,17 +2,18 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 import Rows from "../Rows";
+import FinalRow from "../FinalRow";
 
 const FinalTable = () => {
   const { channels } = useSelector((state) => state.jsonData);
+  const localStorageKeys = Object.keys(localStorage);
 
+  console.log(JSON.parse(localStorage.getItem('dropdown_8_0_dropdown1')));
   return (
     <div>
-      <Box sx={{ width: "95%", mx: "auto" }}>
-        {channels.map((option, index) => (
-          <Rows rowId={index} key={index} channel={option} />
-        ))}
-      </Box>
+      <ul>
+        {/* <FinalRow/> */}
+      </ul>
     </div>
   );
 };
