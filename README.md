@@ -1,5 +1,5 @@
 
-# Chat Screen Progressive Web Application (PWA)
+# React Web Application For Storing Settings
 
 This project is a react based web application that allows users to store their settings in a tabular form. The user's data is stored in the local storage in real time, ensuring that their settings are preserved even if they close the browser and revisit the application. The project is built using React JS framework with the state management handled by Redux. Material UI is used as the design framework for creating a visually appealing user interface.
 
@@ -15,28 +15,19 @@ This project is a react based web application that allows users to store their s
 
 ## Run Locally
 
-Unzip the folder 
+- Unzip the folder 
 
-```sh
-  Neurobit-Internship
-```
 
-Go to the project directory
-
-```sh
-  cd PWA-Chat-Application
-```
-
-Install dependencies
+- Install dependencies
 
 ```sh
   npm install
 ```
 
-Start the server
+- Start the server
 
 ```sh
-  npm run start
+  npm run dev
 ```
 
 
@@ -61,4 +52,4 @@ This application is also deployed to Vercel[&nbsp;Live Demo](https://neurobit-in
 
 ## Assumptions  
 
-The provided API uses HTTP, which is not secure. When the app is deployed on a website using HTTPS, a mixed content error occurs because the browser blocks insecure requests. Although the assignment suggests opening the API link in a new tab and allowing access, it doesn't resolve the mixed content issue. In the deployed link, the API request fails due to the same error.
+As per the instruction I have implemented the web solution, but in some cases I have taken some assumption. When the user suddenly closes the window then also his settings will be stored into the local storage, when an old user comes whose previous data are stored, he/she gets a welcome/reminder message of the previous saved data and one more thing that in the assignment nothing was told about delete button though I have implemented the preliminary functionality of the delete button, but user can find some anomaly or malfunctional with the delete button...
