@@ -4,17 +4,17 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const dumyOptions = [
-  { value: "option1", name: "C1" },
-  { value: "option2", name: "C2" },
-  { value: "option3", name: "C3" },
-  { value: "option4", name: "C4" },
-  { value: "option5", name: "C5" },
-  { value: "option6", name: "C6" },
-  { value: "option7", name: "C7" },
-  { value: "option8", name: "C8" },
-  { value: "option9", name: "C9" },
-  { value: "option10", name: "C10" },
-  { value: "option11", name: "C11" },
+  { name: "C2" },
+  { name: "C1" },
+  { name: "C3" },
+  { name: "C4" },
+  { name: "C5" },
+  { name: "C6" },
+  { name: "C7" },
+  { name: "C8" },
+  { name: "C9" },
+  { name: "C10" },
+  { name: "C11" },
 ];
 
 const DropDown = ({ value, onChange, rowId = 0, subrowId = 0, dropdownId }) => {
@@ -46,7 +46,7 @@ const DropDown = ({ value, onChange, rowId = 0, subrowId = 0, dropdownId }) => {
           </span>
         </MenuItem>
         {dumyOptions.map((option) => (
-          <MenuItem key={option.value} value= {option.value}>
+          <MenuItem key={option.name} value= {option.name}>
              {option.name}
           </MenuItem>
         ))}

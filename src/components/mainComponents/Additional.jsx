@@ -5,9 +5,8 @@ import { Checkbox, FormControlLabel } from "@mui/material";
 import { useSelector } from "react-redux";
 
 const AdditionalContent = () => {
-  const {  optionals } = useSelector((state) => state.jsonData);
-
-  const [arr, setArr] = useState([]);
+  const { optionals } = useSelector((state) => state.jsonData);
+  const { value } = useSelector((state) => state.step);
   return (
     <Box
       sx={{
@@ -28,16 +27,26 @@ const AdditionalContent = () => {
         <Box>Additional Settings</Box>
 
         <Box>
-          <FormControlLabel
-            control={<Checkbox defaultChecked={optionals[0].optional1} />}
-            label=" Artifacts"
-          />
+          {value < 3 ? (
+            <FormControlLabel
+              control={<Checkbox defaultChecked={optionals[0].optional1} />}
+              label=" Artifacts"
+            />
+          ) : (
+            <Box fontSize={16} fontWeight={500} sx={{ color: " #71706E " }}>
+              Artifacts
+            </Box>
+          )}
         </Box>
         <Box>
-          <FormControlLabel
-            control={<Checkbox defaultChecked={optionals[0].optional2} />}
-            label="Spindle"
-          />
+          {value < 3 ? (
+            <FormControlLabel
+              control={<Checkbox defaultChecked={optionals[0].optional2} />}
+              label=" Spindle"
+            />
+          ) : <Box fontSize={16} fontWeight={500} sx={{color: " #71706E " }}>
+          Spindle
+        </Box>}
         </Box>
       </Stack>
     </Box>

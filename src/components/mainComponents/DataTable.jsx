@@ -5,7 +5,7 @@ import Rows from "../Rows";
 import { updateDropdownData } from "../../store/dropdownSlice";
 
 const MapChannel = () => {
-  const { channels } = useSelector((state) => state.jsonData);
+  const { channels } = useSelector((state) => state.channelSlice);
   const dropdownData = useSelector((state) => state.dropdown);
 
   
@@ -32,8 +32,8 @@ const MapChannel = () => {
   return (
     <div>
       <Box sx={{ width: "95%", mx: "auto" }}>
-        {channels.map((option, index1) => {
-          return <Rows rowId={index1} key={index1} channel={option} />;
+        {channels.map((channel, index1) => {
+          return <Rows rowId={index1} key={index1} channel={channel} />;
         })}
       </Box>
     </div>

@@ -17,8 +17,16 @@ const dropdownSlice = createSlice({
             };
 
         },
+        removeDropdownData: (state, action) => {
+            const { rowId, subrowId } = action.payload;
+            state[rowId][subrowId] = {
+                ...state[rowId][subrowId],
+                "dropdown1": "",
+                "dropdown2": ""
+            };
+        }
     },
 });
 
-export const { updateDropdownData } = dropdownSlice.actions;
+export const { updateDropdownData, removeDropdownData } = dropdownSlice.actions;
 export default dropdownSlice.reducer;

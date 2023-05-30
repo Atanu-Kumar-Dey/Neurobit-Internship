@@ -5,16 +5,16 @@ import Rows from "../Rows";
 import FinalRow from "../FinalRow";
 
 const FinalTable = () => {
-  const { channels } = useSelector((state) => state.jsonData);
-  const localStorageKeys = Object.keys(localStorage);
-
-  console.log(JSON.parse(localStorage.getItem('dropdown_8_0_dropdown1')));
+  const {channels} = useSelector((state) => state.channelSlice);
+  console.log(channels)
   return (
-    <div>
-      <ul>
-        {/* <FinalRow/> */}
-      </ul>
-    </div>
+    <Box sx={{width:"95%",mx:"auto"}}>
+     {
+        channels.map((channel,index) =>(
+          <FinalRow key={index} rowId={index} channel={channel} />
+        ))
+     }
+    </Box>
   );
 };
 

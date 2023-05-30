@@ -3,7 +3,8 @@ import { Box, Button } from "@mui/material";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import DropDown from "./DropDown";
-import { updateDropdownData } from "../store/dropdownSlice";
+import { removeDropdownData, updateDropdownData } from "../store/dropdownSlice";
+import { removeSubRow } from "../store/jsonDataSlice";
 
 const SubRows = ({ rowId, subrowId }) => {
   const dropdownData = useSelector((state) => state.dropdown);
@@ -13,6 +14,14 @@ const SubRows = ({ rowId, subrowId }) => {
   const handleDropdownChange = (dropdownId, data) => {
     dispatch(updateDropdownData({ rowId, dropdownId, subrowId, data }));
   };
+
+
+  const handleDelete = () => {
+    dispatch(removeSubRow({ rowId, subrowId }));
+    localStorage.removeItem(`dropdown_${rowId}_${subrowId}_dropdown1`); 
+    localStorage.removeItem(`dropdown_${rowId}_${subrowId}_dropdown2`);
+    dispatch(removeDropdownData({ rowId, subrowId }));
+  }
 
   return (
     <Box
@@ -54,7 +63,7 @@ const SubRows = ({ rowId, subrowId }) => {
             color="error"
             sx={{ fontSize: "12px", textTransform: "capitalize" }}
             startIcon={<RiDeleteBin6Line />}
-            // onClick={handleDelete}
+            onClick={handleDelete}
           >
             Delete
           </Button>

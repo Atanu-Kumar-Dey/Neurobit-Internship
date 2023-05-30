@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import MenuItem from '@mui/material/MenuItem'
 
 const initialState = {
     channels: null,
@@ -17,24 +16,23 @@ export const jsonDatSlice = createSlice({
         },
         addSubRow: (state, action) => {
             const { rowId = 0, subrowId } = action.payload;
-            if (typeof state.channels[rowId] === 'string') {
+            if (typeof state.channels[rowId] === "string") {
                 state.channels[rowId] = [];
             }
             state.channels[rowId].push(subrowId);
-            localStorage.setItem("channels", JSON.stringify(state.channels))
+            localStorage.setItem("channels", JSON.stringify(state.channels));
         },
         removeSubRow: (state, action) => {
             const { rowId = 0, subrowId } = action.payload;
-            if (typeof state.channels[rowId] !== 'string') {
-                if (state.channels[rowId][subrowId]) {
-
-                }
+            if (typeof state.channels[rowId] !== "string") {
+                state.channels[rowId].splice(subrowId - 1, 1);
+                localStorage.setItem("channels", JSON.stringify(state.channels));
             }
         },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { setData, addSubRow } = jsonDatSlice.actions;
+export const { setData, addSubRow, removeSubRow } = jsonDatSlice.actions;
 
 export default jsonDatSlice.reducer;
